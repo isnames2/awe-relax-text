@@ -19,6 +19,8 @@ TEXT = (
 
 
 def main() -> None:
+    # The gate allows 1 to 280 Unicode code points, not only whitespace.
+    assert 1 <= len(TEXT) <= 280 and TEXT.strip(), "entry text out of bounds"
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8", newline="\n") as f:
         f.write(TEXT)
